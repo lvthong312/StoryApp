@@ -2,7 +2,7 @@
 ## Example
 Go to link below to see:
   [https://drive.google.com/drive/folders/1l_jplyD3XxnlDNEJPyRGfSEfwys0RIio?usp=sharing](https://drive.google.com/drive/folders/1l_jplyD3XxnlDNEJPyRGfSEfwys0RIio?usp=sharing)
-
+Video Demo: [https://drive.google.com/file/d/1IlrUF3Yka-o1-ltgrWf1NUj2kcA08azn/view?usp=sharing](https://drive.google.com/file/d/1IlrUF3Yka-o1-ltgrWf1NUj2kcA08azn/view?usp=sharing)
 # Guideline
 First, you need to clone the project. To do so, you need to run these commands:
 
