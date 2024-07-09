@@ -1,0 +1,5 @@
+export const GET_STORY_BY_ID_API = '/get-story-by-id'
+export const GET_NEW_STORIES_API = '/get-new-stories'
+export const GET_BEST_STORIES_API = '/get-best-stories'
+export const GET_TOP_STORIES_API = '/get-top-stories'
+export const GET_STORY_COMMENTS_API = '/get-story-comments-by-id'
