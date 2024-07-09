@@ -27,11 +27,14 @@ StoryApp
 Go to the Server folder path:
 you need to install the new dependencies in your NodeJS project. To do so, you need to run this command:
 ```sh
-  1. npm install
+  1. cd Server
+```
+```sh
+  2. npm install
 ```
 
 ```sh
-  2. npm run dev
+  3. npm run dev
 ```
 
 ## Client - React Native
