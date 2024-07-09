@@ -23,6 +23,16 @@ StoryApp
 └── Server
     └── ...
 ```
+## Server - NodeJS
+Go to the Server folder path:
+you need to install the new dependencies in your NodeJS project. To do so, you need to run this command:
+```sh
+  1. npm install
+```
+
+```sh
+  2. npm run dev
+```
 
 ## Client - React Native
 Then, you need to install the new dependencies in your React Native project. To do so, you need to run these commands:
@@ -46,17 +56,7 @@ Then, you need to install the new dependencies in your React Native project. To 
 npm run android
 ```
 
-## Server - NodeJS
-Go to the StoryApp/Server folder path:
 
-
-```sh
-  1. npm install
-```
-
-```sh
-  2. npm run dev
-```
 
 
 
