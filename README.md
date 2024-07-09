@@ -37,6 +37,9 @@ you need to install the new dependencies in your NodeJS project. To do so, you n
   3. npm run dev
 ```
 
+> [!Note]
+> If you haven't set up the NodeJS environment before. Please see the documentation: [https://nodejs.org/en/learn/getting-started/how-to-install-nodejs](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+
 ## Client - React Native
 Then, you need to install the new dependencies in your React Native project. To do so, you need to run these commands:
 
@@ -60,6 +63,8 @@ npm run android
 ```
 
 
+> [!Note]
+> If you haven't set up the React Native environment before. Please see the documentation: [https://reactnative.dev/docs/set-up-your-environment](https://reactnative.dev/docs/set-up-your-environment)
 
 
 
