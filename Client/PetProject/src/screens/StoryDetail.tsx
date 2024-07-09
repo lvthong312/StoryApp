@@ -19,7 +19,7 @@ interface IProps {
 const StoryDetail = (props: IProps) => {
   const story = props?.route?.params?.story;
   const {
-    data: newStories,
+    data: comments,
     isRefreshing,
     onRefresh,
     onEndReached,
@@ -27,7 +27,10 @@ const StoryDetail = (props: IProps) => {
   }: IStoryScroll = useInfiniteScroll({
     url: GET_STORY_COMMENTS_API,
     limit: 5,
-    key: 'comments',
+    filters: {
+      id: story?.id
+    },
+    key: ['comments', story?.id],
   });
 
   const renderItem = useCallback(({ item }: { item: number; index: number }) => {
@@ -39,7 +42,7 @@ const StoryDetail = (props: IProps) => {
   }, []);
 
   function keyExtractor(item: number, index: number) {
-    return `Comments_${item}_${index}`;
+    return `Comments_${story?.id}_${item}_${index}`;
   }
 
   function ListHeaderComponent() {
@@ -75,7 +78,7 @@ const StoryDetail = (props: IProps) => {
   return (
     <View>
       <FlatList
-        data={newStories}
+        data={comments}
         renderItem={renderItem}
         ListHeaderComponent={ListHeaderComponent}
         keyExtractor={keyExtractor}

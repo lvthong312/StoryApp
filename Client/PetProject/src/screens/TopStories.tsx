@@ -12,7 +12,7 @@ const TopStories = () => {
     useInfiniteScroll({
       url: GET_TOP_STORIES_API,
       limit: 20,
-      key: 'topstories',
+      key: ['topstories'],
     });
 
   const onPressStory = useCallback((story: IStory) => {

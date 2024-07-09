@@ -15,7 +15,6 @@ export const useInfiniteScroll = <T = unknown, F = object>({
     limit = 20,
     filters,
 }: Params<F>) => {
-    const queryKey: any = [...key]
     const [isRefreshing, setIsRefreshing] = useState(false);
     const queryFn = async ({ pageParam = 1 }) => {
         const { data } = await AxiosInstance.post<T[]>(url, {
@@ -29,11 +28,11 @@ export const useInfiniteScroll = <T = unknown, F = object>({
         };
     };
     const { data, hasNextPage, fetchNextPage, isFetchingNextPage, refetch } = useInfiniteQuery({
-        queryKey,
+        queryKey: key,
         queryFn,
         initialPageParam: 1,
         getNextPageParam: (lastPage: any,  lastPageParam: number) => {
-            if (lastPage.data.length < limit) {
+            if (lastPage?.data?.length < limit) {
                 return undefined;
             }
             return lastPage.nextPage;

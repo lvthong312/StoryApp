@@ -25,6 +25,7 @@ const Comment = ({ storyId, count = 0 }: IProps) => {
   }, [storyId]);
 
   const timeAgo = formatTimeAgo(comment?.time);
+  if (!comment?.text && !comment?.title) return null
   return (
     <View style={{ marginHorizontal: count * 10 }}>
       <CommentCard
@@ -45,7 +46,7 @@ const Comment = ({ storyId, count = 0 }: IProps) => {
         {comment?.text}
       </Text>
       <Card.Divider />
-      <SubComment storyId={storyId} count={1} />
+      {comment?.kids?.length > 0 ? <SubComment storyId={comment?.id} count={1} /> : null}
     </View>
   );
 };

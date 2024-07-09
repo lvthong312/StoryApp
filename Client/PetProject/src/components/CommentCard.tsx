@@ -18,7 +18,7 @@ const CommentCard = ({ renderRight, by, descendants, style }: IProps) => {
           containerStyle={{ backgroundColor: 'blue', marginRight: 4 }}
         />
         <Text style={styles.byText} numberOfLines={1}>
-          by {by}
+          {by}
         </Text>
       </View>
       {renderRight && typeof renderRight == 'function' ? (

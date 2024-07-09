@@ -2,7 +2,7 @@ import express from 'express';
 import 'dotenv/config'
 import AxiosInstance, { axiosResponseConfig } from './src/axios/AxiosInstance.mjs'
 import { ITEM_URL, getEndPoint } from './src/services/ApiUrl.mjs';
-import { BEST_STORIES_CACHE_KEY, NEW_STORIES_CACHE_KEY, TOP_STORIES_CACHE_KEY } from './src/constants/Constants.mjs'
+import { BEST_STORIES_CACHE_KEY, getStoryByIdCacheKey, NEW_STORIES_CACHE_KEY, TOP_STORIES_CACHE_KEY } from './src/constants/Constants.mjs'
 import { preLoadJobStories } from './src/utils/SyncJob.mjs'
 import NodeCache from 'node-cache'
 
@@ -32,15 +32,17 @@ async function handlelCachedStory(req, res, next, keyCached) {
     }
     next()
 }
-app.post('/get-story-comments-by-id', (req, res, next) => handlelCachedStory(req, res, next, NEW_STORIES_CACHE_KEY), async (req, res) => {
+app.post('/get-story-comments-by-id', async (req, res) => {
     const { offset, limit } = req.body
     const { id } = req.body;
-    let keyCache = `story_by_id_${id}`
-    const cachedData = cache.get(keyCache);
+    let keyCache = getStoryByIdCacheKey(id)
+    const cachedData = await cache.get(keyCache);
     if (cachedData) {
         const comments = cachedData?.kids || []
         const newFormatStories = await paginationStories(comments, offset, limit)
-        return res.send(newFormatStories);
+        return res.send({
+            data: newFormatStories
+        });
     }
     const story = await AxiosInstance.get(process.env.BASE_URL + ITEM_URL(id))
     cache.set(keyCache, story);
@@ -81,7 +83,7 @@ app.post('/get-top-stories', (req, res, next) => handlelCachedStory(req, res, ne
 
 app.post('/get-story-by-id', async (req, res) => {
     const { id } = req.body;
-    let keyCache = `story_by_id_${id}`
+    let keyCache = getStoryByIdCacheKey(id)
     const cachedData = cache.get(keyCache);
     if (cachedData) {
         return res.send(cachedData);

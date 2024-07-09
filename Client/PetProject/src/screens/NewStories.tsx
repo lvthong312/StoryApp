@@ -12,7 +12,7 @@ const NewStories = () => {
     useInfiniteScroll({
       url: GET_NEW_STORIES_API,
       limit: 20,
-      key: 'newstories',
+      key: ['newstories'],
     });
 
   const onPressStory = useCallback((story: IStory) => {

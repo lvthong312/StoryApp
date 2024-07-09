@@ -35,10 +35,12 @@ const SubComment = ({ storyId, count = 0 }: IProps) => {
     } else {
       return null;
     }
-  }, [storyId, comment?.kids]);
+  }, [comment?.kids]);
   const timeAgo = formatTimeAgo(comment?.time);
+  if ((!comment?.text && !comment?.title)) return null
+
   return (
-    <View style={{ marginHorizontal: count * 10 }}>
+    <View style={{ marginHorizontal: count > 3 ? 0 : count * 5 }}>
       <CommentCard
         renderRight={() => (
           <Text style={styles.timeAgoText} numberOfLines={3}>
