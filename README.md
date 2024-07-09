@@ -12,7 +12,7 @@ First, you need to clone the project. To do so, you need to run these commands:
 ```sh
 2. cd StoryApp
 ```
-The project Stucture like:
+The project structure like:
 ```sh
 
 StoryApp
