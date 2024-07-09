@@ -7,11 +7,16 @@ Go to link below to see:
 First, you need to clone the project. To do so, you need to run these commands:
 
 ```sh
-git clone https://github.com/lvthong312/StoryApp.git
+1. git clone https://github.com/lvthong312/StoryApp.git
+```
+```sh
+2. cd StoryApp
 ```
 The project Stucture like:
 ```sh
-.
+
+StoryApp
+│
 ├── Client
 │   └── PetProject
 │       └── ...
@@ -42,7 +47,7 @@ npm run android
 ```
 
 ## Server - NodeJS
-Go to the Server folder path:
+Go to the StoryApp/Server folder path:
 
 
 ```sh
