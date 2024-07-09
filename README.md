@@ -54,12 +54,12 @@ Then, you need to install the new dependencies in your React Native project. To 
 1. cd ios && pod install && cd ..
 ```
 ```sh
-2. npm run ios
+2. npx react-native run-ios
 ```
 
 ### For Android
 ```sh
-npm run android
+npx react-native run-android
 ```
 
 
